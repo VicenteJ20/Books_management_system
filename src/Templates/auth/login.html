@@ -1,0 +1,49 @@
+{% extends './base.html'%}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+{% endblock %}
+{% block body%}
+
+<main id="main">
+    <section id="form_section">
+        <img src="{{url_for('static', filename='img/inacap_brand_logo.png')}}" alt="" class="img-fluid d-block img_home">
+        <form action="/login" class="form" method="POST">
+            {% with messages = get_flashed_messages()%}
+
+            {% if messages %}
+
+            {% for m in messages %}
+
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <strong>{{m}}</strong>
+                <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            {% endfor %}
+
+            {% endif %}
+
+            {% endwith %}
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form_control">    
+                <label for="rut" class="form-label">RUT</label>
+                <input type="text" class="form-input" name="rut" id="rut" placeholder="Ingrese su rut aquí por favor..." required>
+            </div>
+            <div class="form_control">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-input" name="password" id="password" placeholder="Ingrese su contraseña por favor..." required>
+            </div>
+            <div class="form_control">
+                <input type="submit" class="submit" value="Iniciar sesión">
+            </div>
+        </form>
+    </section>
+    <section id="img_section">
+        <img src="{{url_for('static', filename='img/bookstore_home.jpg')}}" alt="" class="img-fluid img_presentation d-block">
+    </section>
+</main>
+
+{% endblock %}

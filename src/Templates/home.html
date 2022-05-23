@@ -1,0 +1,22 @@
+{% extends './base.html'%}
+
+{% block title %}Inicio{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+{% endblock %}
+{% block body%}
+
+
+<main id="main">
+    <div id="content">
+        <h1>Bienvenido {{ current_user.fullname }}</h1>
+        <a href="{{ url_for('logout')}}" class="btn btn-danger">Cerrar sesión</a>
+    </div>
+</main>
+
+{% endblock %}
+
+{% block customJS %}
+<script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+{% endblock %}

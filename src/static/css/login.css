@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+}
+
+#main{
+    display: grid;
+    grid-template-columns: 50% auto;
+}
+
+#form_section{
+    height: 100vh;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form_control{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+
+.form-label{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.form-input{
+    border: none;
+    font-size: 1.4rem;
+    border: 1px solid rgb(129, 129, 129);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.submit{
+    background-color: brown;
+    border: none;
+    color: #fafafa;
+    padding: 0.7rem;
+    border-radius: 0.4rem;
+    font-size: 1.2rem;
+}
+
+.submit:hover{
+    background-color: rgb(180, 81, 15);
+}
+
+
+.img_home{
+    max-width: 40%;
+}
+
+.img_presentation{
+    height: 100vh;
+    width: 100%;
+}

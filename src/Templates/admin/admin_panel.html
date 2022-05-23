@@ -1,0 +1,98 @@
+{% extends './base.html' %}
+
+{% block title %}Panel de Administrador{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/admin_panel.css')}}">
+{% endblock %}
+
+{% block body %}
+<main id="main">
+    <aside class="side_menu"  id="menu_side">
+        <div class="brand_div">
+            <img src="{{url_for('static', filename='img/top_img_brand.jpeg')}}" alt="" class="d-block">
+            <h4>INACAP</h4>
+        </div>
+        <div class="content_aside">
+            <ul class="list_content">
+                <li class="option">
+                    <a href="#" class="option_link selected">
+                        <i class="fa-solid fa-house-user" title="Inicio"></i>
+                        <h4>Menú principal</h4>
+                    </a>
+                </li>
+                <li class="option">
+                    <a href="#" class="option_link">
+                        <i class="fa-solid fa-user-plus" title="Agregar Bibliotecarios"></i>
+                        <h4>Agregar Bibliotecarios</h4>
+                    </a>
+                </li>
+                <li class="option">
+                    <a href="#" class="option_link">
+                        <i class="fa-solid fa-user-pen" title="Editar Bibliotecarios"></i>
+                        <h4>Editar Bibliotecarios</h4>
+                    </a>
+                </li>
+                <li class="option">
+                    <a href="#" class="option_link">
+                        <i class="fa-solid fa-user-minus" title="Eliminar Bibliotecarios"></i>
+                        <h4>Eliminar Bibliotecarios</h4>
+                    </a>
+                </li>
+                <li class="option">
+                    <a href="#" class="option_link">
+                        <i class="fa-solid fa-users-viewfinder" title="Visualizar Bibliotecarios"></i>
+                        <h4>Visualizar Bibliotecarios</h4>
+                    </a>
+                </li>
+                <li class="option"><a href="{{ url_for('logout')}}" class="btn btn-danger">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </aside>
+    <section id="content">
+        <header>
+            <div class="icon_menu" id="btn_open">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="sayhello">
+                <h5 class="sayhello_text">Bienvenido: {{ current_user.fullname }}</h5>
+                <p class="rol_user">Administrador</p>
+            </div>
+        </header>
+        <section class="content_menu">
+            <h1 class="title">Acciones Rápidas</h1>
+            <div class="quick_actions">
+                <div class="content_action">
+                    <i class="fa-solid fa-user-plus" title="Agregar Bibliotecarios"></i>
+                    <h3 class="title_box"> Agregar Bibliotecarios</h3>
+                    <a href="#" class="btn btn_add btn_box">Ir al panel</a>
+                </div>
+                <div class="content_action">
+                    <i class="fa-solid fa-users-viewfinder" title="Visualizar Bibliotecarios"></i>
+                    <h3 class="title_box"> Visualizar Bibliotecarios</h3>
+                    <a href="#" class="btn btn_view btn_box">Ir al panel</a>
+                </div>
+                <div class="content_action">
+                    <i class="fa-solid fa-user-minus" title="Eliminar Bibliotecarios"></i>
+                    <h3 class="title_box">Editar Bibliotecarios</h3>
+                    <a href="#" class="btn btn_edit btn_box">Ir al panel</a>
+                </div>
+                <div class="content_action">
+                    <i class="fa-solid fa-user-minus" title="Eliminar Bibliotecarios"></i>
+                    <h3 class="title_box">Eliminar Bibliotecarios</h3>
+                    <a href="#" class="btn btn_delete btn_box">Ir al panel</a>
+                </div>
+            </div>
+            <div class="daily_resume">
+                <h2 class="subtitle">Resumen del día</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae temporibus corporis possimus necessitatibus id odio asperiores amet exercitationem obcaecati voluptate et iure, quos error laborum placeat ratione expedita rem incidunt laudantium illum sapiente unde. Velit molestiae nam temporibus, dolore harum id tempore accusantium dolorum nisi facilis reiciendis nulla ipsa sint aspernatur incidunt quisquam eveniet aut corporis minima sequi earum in voluptatem quos. Quo consectetur veniam quasi voluptas asperiores neque vero tempore at cum voluptate iste voluptatum a libero sit perferendis eaque repellat impedit deserunt quae, fuga non? Beatae odio nisi officiis animi ex nesciunt optio, officia pariatur alias ab voluptatem.</p>
+            </div>
+        </section>
+    </section>
+</main>
+{% endblock %}
+
+{% block customJS %}
+<script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+{% endblock %}

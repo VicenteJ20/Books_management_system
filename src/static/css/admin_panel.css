@@ -1,0 +1,103 @@
+.content_menu{
+    padding: 4.2rem 1rem 1.5rem 2rem;
+}
+
+.title{
+    font-weight: 600;
+    margin: 2rem 0 3rem 0;
+}
+
+.quick_actions{
+    padding: 1rem 0.5rem;
+}
+
+.subtitle{
+    font-weight: 600;
+    font-size: 2.2rem;
+}
+
+header{
+    justify-content: space-between;
+}
+
+.sayhello{
+    line-height: 0.4;
+    text-align: end;
+    padding-right: 7rem;
+}
+
+.sayhello_text{
+    font-weight: 600;
+}
+
+.rol_user{
+    color: rgb(117, 21, 8);
+    font-weight: 600;
+}
+
+.quick_actions{
+    display: grid;
+    grid-auto-flow: column dense;
+}
+
+.content_action{
+    border: 2px solid rgb(43, 15, 11);
+    border-radius: 0.6rem;
+    padding: 1.5rem 0.6rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem 0;
+}
+
+.title_box{
+    text-align: center;
+    font-weight: 600;
+}
+
+.content_action i{
+    margin: 0 auto;
+    font-size: 3.5rem;
+}
+
+.btn_box{
+    color: #fafafa;
+    font-weight: 600;
+}
+
+.btn_box:hover{
+    background-color: rgb(122, 35, 9);
+    color: #fafafa;
+    transition: 0.2s 0.1s;
+    border: 2px solid rgb(117, 21, 8);
+}
+
+.btn_add{
+    border: 2px solid rgb(10, 71, 10);
+    background-color: rgb(15, 99, 15);
+}
+
+.btn_view{
+    border: 2px solid rgb(117, 57, 8);
+    background-color: rgb(199, 99, 5);
+}
+
+.btn_edit{
+    border: 2px solid rgb(14, 50, 85);
+    background-color: rgb(25, 97, 168);
+}
+
+.btn_delete{
+    border: 2px solid rgb(95, 11, 0);
+    background-color: rgb(131, 19, 4);
+}
+
+.daily_resume{
+    background-color: rgb(245, 245, 245);
+    position: absolute;
+    left: 0;
+    padding:1rem 1rem 1rem 7rem;
+    width: 100%;
+    margin-top: 3rem;
+    height: 44.5%
+}

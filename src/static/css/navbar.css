@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    margin-left: 5rem;
+    transition: margin-right 0.3s cubic-bezier(0.785, 0.135, 0.2, 0.96);
+}
+
+header{
+    width: 100%;
+    height: 4rem;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+
+
+.icon_menu{
+    color: #3f3f3f;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    transform: translateX(0.7rem);
+}
+
+.icon_menu i{
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+}
+
+.side_menu{
+    width: 5rem;
+    height: 100%;
+    position: fixed;
+    background-color: rgb(117, 21, 8);
+    top: 0;
+    left: 0;
+    color: #fafafa;
+    font-size: 1.2rem;
+    z-index: 400;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 15px solid rgb(117, 21, 8);
+    transition: all 0.3s cubic-bezier(0.785, 0.135, 0.2, 0.96);
+}
+
+/*OCULTAR EL SCREOLL*/
+.side_menu::-webkit-scrollbar{
+    display: none;
+}
+
+.side_menu{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.option_link{
+    color: #fafafa; 
+}
+
+.list_content{
+    list-style: none;
+}
+
+.brand_div{
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+    height: fit-content;
+}
+
+.brand_div img{
+    margin-right: 0.5rem;
+    border-radius: 0.3rem;
+    width: 2rem;
+}
+
+.content_aside{
+    position: absolute;
+    top: 5rem;
+}
+
+.option_link{
+    color: #fafafa;
+    display: block;
+    position: relative;
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 0 0.3rem;
+    text-decoration: none;
+}
+
+.option_link:hover{
+    color: rgb(21, 200, 255);
+    transition: color 0.4s;
+}
+
+.option{
+    padding: 1.2rem 0;
+}
+
+.option_link i{
+    margin-right: 1rem;
+    width: 1.72rem;
+}
+
+.option_link h4{
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+a.selected{
+    color: rgb(21, 200, 255);
+}
+
+.selected:before{
+    content: '';
+    width: 0.4rem;
+    height: 80%;
+    background-color: #fafafa;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+/*BUTTON FUNCTIONALITY*/
+
+.body_move{
+    margin-left: 10rem;
+    transition: margin-left 0.3s cubic-bezier(0.785, 0.135, 0.2, 0.96);
+}
+
+.side_menu_move{
+    width: 15rem;
+}
+
+@media only screen and (max-width: 900px){
+    .body_move{
+        margin-left: 0;
+    }
+    .side_menu_move{
+        width: 5rem;
+        left: -5rem;
+    }
+}
