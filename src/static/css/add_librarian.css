@@ -1,0 +1,79 @@
+#content_data{
+    padding: 1rem 2rem;
+    max-width: 60%;
+    margin: 5rem auto 1rem auto;
+}
+
+
+header{
+    justify-content: space-between;
+}
+
+.sayhello{
+    line-height: 0.4;
+    text-align: end;
+    padding-right: 7rem;
+}
+
+.sayhello_text{
+    font-weight: 600;
+}
+
+.rol_user{
+    color: rgb(117, 21, 8);
+    font-weight: 600;
+}
+
+.title{
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+#form{
+    margin: 2rem 0;
+    gap: 1rem 0;
+    min-height: 100%;
+}
+
+.form_grid{
+    display: grid;
+    grid-auto-flow: column dense;
+    gap: 0 2rem;
+}
+
+.form_section{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.form-input{
+    padding: 0.5rem 1rem;
+}
+
+.sign_in_button{
+    margin: 4rem auto 1rem auto;
+    width: 100%;
+    border: 2px solid rgb(53, 4, 4);
+    background-color: rgb(117, 21, 8);
+    color: #fafafa;
+    font-size: 1.2rem;
+}
+
+.sign_in_button:hover{
+    background-color: rgb(53, 4, 4);
+    transition: 0.2s 0.1s;
+    border-color: rgb(117, 21, 8);
+    color: #fff;
+}
+
+.form_section1,
+.form_section2{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem 0;
+}

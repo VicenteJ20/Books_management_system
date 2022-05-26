@@ -43,7 +43,6 @@ def login():
         else:
             flash('Usuario no encontrado')
             return render_template('auth/login.html')
-        return render_template('auth/login.html')
     else:
         return render_template('auth/login.html')
 
@@ -56,6 +55,11 @@ def logout():
 @login_required
 def admin_panel():
     return render_template('admin/admin_panel.html')
+
+@app.route('/add_librarian')
+@login_required
+def add_librarian():
+    return render_template('admin/add_librarian.html')
 
 @app.route('/home')
 @login_required
