@@ -9,6 +9,7 @@ from Models.ModelUser import ModelUser
 
 #entities
 from Models.Entities.User import User
+import crud_admin
 
 app = Flask(__name__)
 database = MySQL(app)
@@ -60,6 +61,26 @@ def admin_panel():
 @login_required
 def add_librarian():
     return render_template('admin/add_librarian.html')
+
+@app.route('/insert_librarian', methods=['POST'])
+@login_required
+def insert_librarian():
+    rut = request.form['rut']
+    password = request.form['password']
+    username = request.form['username']
+    fullname = request.form['fullname']
+    email = request.form['email']
+    creator_id = request.form['creator_id']
+
+    crud_admin.add_librarian(rut, password, username, fullname, email, creator_id)
+
+    return redirect('/admin_panel')
+
+
+@app.route('/view_librarian')
+def view_librarian():
+    librarians = crud_admin.view_librarians()
+    return render_template('admin/view_librarian.html', librarians=librarians)
 
 @app.route('/home')
 @login_required

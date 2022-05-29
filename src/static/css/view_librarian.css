@@ -1,0 +1,30 @@
+#content_data{
+    padding: 1rem 2rem;
+    max-width: 70%;
+    margin: 5rem auto 1rem auto;
+}
+
+
+header{
+    justify-content: space-between;
+}
+
+.sayhello{
+    line-height: 0.4;
+    text-align: end;
+    padding-right: 7rem;
+}
+
+.sayhello_text{
+    font-weight: 600;
+}
+
+.rol_user{
+    color: rgb(117, 21, 8);
+    font-weight: 600;
+}
+
+.title{
+    font-size: 3rem;
+    font-weight: 700;
+}
