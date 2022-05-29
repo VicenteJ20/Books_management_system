@@ -35,7 +35,7 @@ def get_librarian(id):
     connection = get_connection()
     librarian = None
     with connection.cursor() as cursor:
-        cursor.execute("SELECT * FROM Bibliotecario WHERE id = %s", (id))
+        cursor.execute("SELECT * FROM Bibliotecario WHERE rut = %s", (id))
         librarian = cursor.fetchone()
         connection.commit()
         connection.close()

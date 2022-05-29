@@ -78,9 +78,35 @@ def insert_librarian():
 
 
 @app.route('/view_librarian')
+@login_required
 def view_librarian():
     librarians = crud_admin.view_librarians()
     return render_template('admin/view_librarian.html', librarians=librarians)
+
+@app.route('/view_edit_librarians')
+@login_required
+def view_edit_librarian():
+    librarians = crud_admin.view_librarians()
+    return render_template('admin/view_edit_librarian.html', librarians=librarians)
+
+
+@app.route('/edit_librarian/<id>')
+def edit_librarian(id):
+    librarian = crud_admin.get_librarian(id)
+    return render_template('admin/edit_librarian.html', librarian=librarian)
+
+
+@app.route('/update_librarian', methods=['POST'])
+def update_librarian():
+    rut = request.form['rut']
+    password = request.form['password']
+    username = request.form['username']
+    fullname = request.form['fullname']
+    email = request.form['email']
+    creator_id = request.form['creator_id']
+
+    crud_admin.update_librarian(rut, password, username, fullname, email, creator_id)
+    return redirect('/admin_panel')
 
 @app.route('/home')
 @login_required

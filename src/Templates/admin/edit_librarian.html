@@ -1,0 +1,119 @@
+{% extends './base.html' %}
+
+{% block title %} Actualizar Bibliotecarios {% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/edit_librarian.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css')}}">
+{% endblock %}
+
+{% block body %}
+
+<main id="main">
+    <aside class="side_menu"  id="menu_side">
+        <div class="brand_div">
+            <img src="{{url_for('static', filename='img/top_img_brand.jpeg')}}" alt="" class="d-block">
+            <h4>INACAP</h4>
+        </div>
+        <div class="content_aside">
+            <ul class="list_content">
+                <li class="option">
+                    <a href="/admin_panel" class="option_link selected">
+                        <i class="fa-solid fa-house-user" title="Inicio"></i>
+                        <h4>Menú principal</h4>
+                    </a>
+                </li>
+                <li class="option">
+                    <a href="#" class="option_link">
+                        <i class="fa-solid fa-user-plus" title="Agregar Bibliotecarios"></i>
+                        <h4>Agregar Bibliotecarios</h4>
+                    </a>
+                </li>
+                <li class="option">
+                    <a href="#" class="option_link">
+                        <i class="fa-solid fa-user-pen" title="Editar Bibliotecarios"></i>
+                        <h4>Editar Bibliotecarios</h4>
+                    </a>
+                </li>
+                <li class="option">
+                    <a href="#" class="option_link">
+                        <i class="fa-solid fa-user-minus" title="Eliminar Bibliotecarios"></i>
+                        <h4>Eliminar Bibliotecarios</h4>
+                    </a>
+                </li>
+                <li class="option">
+                    <a href="#" class="option_link">
+                        <i class="fa-solid fa-users-viewfinder" title="Visualizar Bibliotecarios"></i>
+                        <h4>Visualizar Bibliotecarios</h4>
+                    </a>
+                </li>
+                <li class="option"><a href="{{ url_for('logout')}}" class="btn btn-danger">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </aside>
+    <section id="content">
+        <header>
+            <div class="icon_menu" id="btn_open">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="sayhello">
+                <h5 class="sayhello_text">Bienvenido: {{ current_user.fullname }}</h5>
+                <p class="rol_user">Administrador</p>
+            </div>
+        </header>
+        <section id="content_data">
+            <h1 class="title">Edición de Bibliotecario <span class="rut_edit">{{librarian[0]}}</span></h1>
+            <form action="{{url_for('update_librarian')}}" method="POST" id="form">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <section class="form_grid">
+                    <section class="form_section1">
+                        <div class="form_section">
+                            <label for="rut" class="form-label">Rut Bibliotecario</label>
+                            <input type="text" class="form-input" name="rut" value="{{librarian[0]}}" id="rut" readonly placeholder="EL RUT NO PUEDE SER EDITADO">
+                        </div>
+                        <div class="form_section">
+                            <label for="fullname" class="form-label">Nombre completo: </label>
+                            <input type="text" class="form-input" name="fullname" id="fullname" placeholder="Ingrese el nombre y apellido del bibliotecario" value="{{librarian[3]}}">
+                        </div>
+                        <div class="form_section">
+                            <label for="password" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-input" name="password" id="password" placeholder="Ingrese su contraseña" value="{{librarian[1]}}">
+                        </div>
+                        <div class="form_section">
+                            <label for="confirm_password" class="form-label">Confirme su contraseña: </label>
+                            <input type="password" class="form-input" name="confirm_password" id="confirm_password" placeholder="Vuelva a ingresar su contraseña">
+                        </div>
+                    </section>
+                    <section class="form_section2">
+                        <div class="form_section">
+                            <label for="username" class="form-label">Nombre de usuario</label>
+                            <input type="text" id="username" name="username" placeholder="Ingrese nombre de usuario para el / la bibliotecaria" class="form-input" value="{{librarian[2]}}">
+                        </div>
+                        <div class="form_section">
+                            <label for="email" class="form-label">Correo electrónico: </label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Ingrese su correo electrónico" value="{{librarian[4]}}">
+                        </div>
+                        <div class="form_section">
+                            <label for="confirm_email" class="form-label">Confirme su correo</label>
+                            <input type="email" id="emailconfirm" name="confirm_email" class="form-input" placeholder="Confirme su correo electrónico...">
+                        </div>
+                        <div class="form_section">
+                            <label for="creator_id" class="form-label">Ingrese RUT del Administrador</label>
+                            <input type="text" id="creator_id" name="creator_id" class="form-input" placeholder="Ingrese RUT del administrador que aprueba la creación..." value="{{librarian[5]}}" readonly>
+                        </div>
+                    </section>
+                </section>
+                <div class="form-section">
+                    <input type="submit" class="btn sign_in_button" value="Ingresar Administrador">
+                </div>
+            </form>
+        </section>
+    </section>
+</main>
+
+
+{% endblock %}
+
+{% block customJS %}
+<script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+{% endblock %}
