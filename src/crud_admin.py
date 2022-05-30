@@ -27,7 +27,7 @@ def view_librarians():
 def delete_librarian(id):
     connection = get_connection()
     with connection.cursor() as cursor:
-        cursor.execute("DELETE FROM Bibliotecario WHERE id = %s", (id))
+        cursor.execute("DELETE FROM Bibliotecario WHERE rut = %s", (id))
         connection.commit()
         connection.close()
 

@@ -1,10 +1,10 @@
 {% extends './base.html' %}
 
-{% block title %}Panel de Administrador{% endblock %}
+{% block title %} Editar Bibliotecarios {% endblock %}
 
 {% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/view_librarian.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename='css/admin_panel.css')}}">
 {% endblock %}
 
 {% block body %}
@@ -17,7 +17,7 @@
         <div class="content_aside">
             <ul class="list_content">
                 <li class="option">
-                    <a href="/add_librarian" class="option_link selected">
+                    <a href="/admin_panel" class="option_link selected">
                         <i class="fa-solid fa-house-user" title="Inicio"></i>
                         <h4>Menú principal</h4>
                     </a>
@@ -63,37 +63,44 @@
                 <p class="rol_user">Administrador</p>
             </div>
         </header>
-        <section class="content_menu">
-            <h1 class="title">Acciones Rápidas</h1>
-            <div class="quick_actions">
-                <div class="content_action">
-                    <i class="fa-solid fa-user-plus" title="Agregar Bibliotecarios"></i>
-                    <h3 class="title_box"> Agregar Bibliotecarios</h3>
-                    <a href="/add_librarian" class="btn btn_add btn_box">Ir al panel</a>
-                </div>
-                <div class="content_action">
-                    <i class="fa-solid fa-users-viewfinder" title="Visualizar Bibliotecarios"></i>
-                    <h3 class="title_box"> Visualizar Bibliotecarios</h3>
-                    <a href="/view_librarian" class="btn btn_view btn_box">Ir al panel</a>
-                </div>
-                <div class="content_action">
-                    <i class="fa-solid fa-user-minus" title="Editar Bibliotecarios"></i>
-                    <h3 class="title_box">Editar Bibliotecarios</h3>
-                    <a href="/view_edit_librarians" class="btn btn_edit btn_box">Ir al panel</a>
-                </div>
-                <div class="content_action">
-                    <i class="fa-solid fa-user-minus" title="Eliminar Bibliotecarios"></i>
-                    <h3 class="title_box">Eliminar Bibliotecarios</h3>
-                    <a href="/view_delete_librarians" class="btn btn_delete btn_box">Ir al panel</a>
-                </div>
-            </div>
-            <div class="daily_resume">
-                <h2 class="subtitle">Resumen del día</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae temporibus corporis possimus necessitatibus id odio asperiores amet exercitationem obcaecati voluptate et iure, quos error laborum placeat ratione expedita rem incidunt laudantium illum sapiente unde. Velit molestiae nam temporibus, dolore harum id tempore accusantium dolorum nisi facilis reiciendis nulla ipsa sint aspernatur incidunt quisquam eveniet aut corporis minima sequi earum in voluptatem quos. Quo consectetur veniam quasi voluptas asperiores neque vero tempore at cum voluptate iste voluptatum a libero sit perferendis eaque repellat impedit deserunt quae, fuga non? Beatae odio nisi officiis animi ex nesciunt optio, officia pariatur alias ab voluptatem.</p>
-            </div>
+        <section id="content_data">
+            <h1 class="title">Todos los bibliotecarios</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Rut</th>
+                        <th>Nombre de Usuario</th>
+                        <th>Nombre completo</th>
+                        <th>Correo electrónico</th>
+                        <th>Creado por</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for librarian in librarians %}
+
+                    <tr>
+                        <td>{{librarian[0]}}</td>
+                        <td>{{librarian[2]}}</td>
+                        <td>{{librarian[3]}}</td>
+                        <td>{{librarian[4]}}</td>
+                        <td>{{librarian[5]}}</td>
+                        <td>
+                            <form action="{{url_for('delete_librarian', id = librarian[0])}}" method="POST">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="id" value="{{librarian[0]}}">
+                                <button class="btn btn-outline-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
         </section>
     </section>
 </main>
+
 {% endblock %}
 
 {% block customJS %}

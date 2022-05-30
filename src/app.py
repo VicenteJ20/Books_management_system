@@ -108,6 +108,18 @@ def update_librarian():
     crud_admin.update_librarian(rut, password, username, fullname, email, creator_id)
     return redirect('/admin_panel')
 
+@app.route('/view_delete_librarians')
+@login_required
+def view_delete_librarian():
+    librarians = crud_admin.view_librarians()
+    return render_template('admin/view_delete_librarians.html', librarians=librarians)
+
+@app.route('/delete_librarian', methods=['POST'])
+@login_required
+def delete_librarian():
+    crud_admin.delete_librarian(request.form['id'])
+    return redirect('/admin_panel')
+
 @app.route('/home')
 @login_required
 def home():

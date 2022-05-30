@@ -9,6 +9,8 @@
 
 .quick_actions{
     padding: 1rem 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .subtitle{
@@ -33,11 +35,6 @@ header{
 .rol_user{
     color: rgb(117, 21, 8);
     font-weight: 600;
-}
-
-.quick_actions{
-    display: grid;
-    grid-auto-flow: column dense;
 }
 
 .content_action{
@@ -100,4 +97,16 @@ header{
     width: 100%;
     margin-top: 3rem;
     height: 44.5%
+}
+
+@media only screen and (max-width: 1700px){
+    .quick_actions{
+        padding: 0;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-columns: auto;
+        width: 60%;
+        gap: 1.6rem;
+        margin: 0 auto;
+        justify-items: center;
+    }
 }
