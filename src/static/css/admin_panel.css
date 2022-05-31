@@ -37,6 +37,7 @@ header{
     font-weight: 600;
 }
 
+
 .content_action{
     border: 2px solid rgb(43, 15, 11);
     border-radius: 0.6rem;
@@ -109,4 +110,3 @@ header{
         margin: 0 auto;
         justify-items: center;
     }
-}
