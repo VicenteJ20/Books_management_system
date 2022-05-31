@@ -23,30 +23,34 @@
                     </a>
                 </li>
                 <li class="option">
-                    <a href="#" class="option_link">
+                    <a href="/add_librarian" class="option_link">
                         <i class="fa-solid fa-user-plus" title="Agregar Bibliotecarios"></i>
                         <h4>Agregar Bibliotecarios</h4>
                     </a>
                 </li>
                 <li class="option">
-                    <a href="#" class="option_link">
+                    <a href="/view_edit_librarians" class="option_link">
                         <i class="fa-solid fa-user-pen" title="Editar Bibliotecarios"></i>
                         <h4>Editar Bibliotecarios</h4>
                     </a>
                 </li>
                 <li class="option">
-                    <a href="#" class="option_link">
+                    <a href="/view_delete_librarians" class="option_link">
                         <i class="fa-solid fa-user-minus" title="Eliminar Bibliotecarios"></i>
                         <h4>Eliminar Bibliotecarios</h4>
                     </a>
                 </li>
                 <li class="option">
-                    <a href="#" class="option_link">
+                    <a href="/view_librarian" class="option_link">
                         <i class="fa-solid fa-users-viewfinder" title="Visualizar Bibliotecarios"></i>
                         <h4>Visualizar Bibliotecarios</h4>
                     </a>
                 </li>
-                <li class="option"><a href="{{ url_for('logout')}}" class="btn btn-danger">Cerrar sesión</a></li>
+
+                <li class="option"><a href="{{ url_for('logout')}}" class="option_link">
+                    <i class="fa-solid fa-arrow-right-to-bracket" title="Cerrar sesión"></i>
+                    Cerrar sesión
+                </a></li>
             </ul>
         </div>
     </aside>
