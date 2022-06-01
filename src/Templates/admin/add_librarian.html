@@ -65,6 +65,22 @@
             </div>
         </header>
         <section id="content_data">
+            {% with messages = get_flashed_messages()%}
+
+            {% if messages %}
+
+            {% for m in messages %}
+
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <strong>{{m}}</strong>
+                <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            {% endfor %}
+
+            {% endif %}
+
+            {% endwith %}
             <h1 class="title">Registro de Bibliotecarios</h1>
             <form action="{{url_for('insert_librarian')}}" method="POST" id="form">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -98,16 +114,16 @@
                         </div>
                         <div class="form_section">
                             <label for="confirm_email" class="form-label">Confirme su correo</label>
-                            <input type="email" id="emailconfirm" name="confirm_email" class="form-input" placeholder="Confirme su correo electrónico...">
+                            <input type="email" id="confirm_email" name="confirm_email" class="form-input" placeholder="Confirme su correo electrónico...">
                         </div>
                         <div class="form_section">
                             <label for="creator_id" class="form-label">Ingrese RUT del Administrador</label>
-                            <input type="text" id="creator_id" name="creator_id" class="form-input" placeholder="Ingrese RUT del administrador que aprueba la creación...">
+                            <input type="text" id="creator_id" name="creator_id" class="form-input">
                         </div>
                     </section>
                 </section>
                 <div class="form-section">
-                    <input type="submit" class="btn sign_in_button" value="Ingresar Administrador">
+                    <input type="submit" class="btn sign_in_button" value="Ingresar Administrador" id="submit">
                 </div>
             </form>
         </section>
@@ -119,4 +135,5 @@
 
 {% block customJS %}
 <script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+<script src="{{url_for('static', filename='js/validate_librarian.js')}}"></script>
 {% endblock %}

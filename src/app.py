@@ -89,7 +89,6 @@ def view_edit_librarian():
     librarians = crud_admin.view_librarians()
     return render_template('admin/view_edit_librarian.html', librarians=librarians)
 
-
 @app.route('/edit_librarian/<id>')
 def edit_librarian(id):
     librarian = crud_admin.get_librarian(id)

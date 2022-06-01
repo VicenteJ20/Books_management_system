@@ -1,3 +1,4 @@
+from flask import flash
 import pymysql
 
 def get_connection():
@@ -11,8 +12,14 @@ def get_connection():
 def add_librarian(rut, password, username, fullname, email, creator_id):
     connection = get_connection()
     with connection.cursor() as cursor:
-        cursor.execute("INSERT INTO Bibliotecario (rut, password, username, full_name, email, creator_id) VALUES (%s, %s, %s, %s, %s, %s)", (rut, password, username, fullname, email, creator_id))
-        connection.commit()
+        try:
+            cursor.execute("INSERT INTO Bibliotecario (rut, password, username, full_name, email, creator_id) VALUES (%s, %s, %s, %s, %s, %s)", (rut, password, username, fullname, email, creator_id))
+            connection.commit()
+        except connection.Error as err:
+            if '1062' in str(err):
+                flash(f'ERROR, el RUT: {rut} ya se encuentra en REGISTRADO')
+            else:
+                flash(f'Lo sentimos, ha ocurrido un error inesperado, contacte con el administrador por favor. {str(err)}')
         connection.close()
 
 def view_librarians():
