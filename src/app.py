@@ -34,7 +34,7 @@ def login():
         if logged_user != None:
             login_user(logged_user)
             if logged_user.password:
-                if logged_user.id == '20509776-7':
+                if logged_user.id == '20758331-6':
                     return redirect(url_for('admin_panel'))
                 else:
                     return redirect(url_for('home'))

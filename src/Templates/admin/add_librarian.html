@@ -82,7 +82,7 @@
 
             {% endwith %}
             <h1 class="title">Registro de Bibliotecarios</h1>
-            <form action="{{url_for('insert_librarian')}}" method="POST" id="form">
+            <form action="{{url_for('insert_librarian')}}" method="POST" id="form" onsubmit="return validateButton()">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <section class="form_grid">
                     <section class="form_section1">
