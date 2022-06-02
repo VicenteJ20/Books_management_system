@@ -66,7 +66,7 @@
         </header>
         <section id="content_data">
             <h1 class="title">Edición de Bibliotecario <span class="rut_edit">{{librarian[0]}}</span></h1>
-            <form action="{{url_for('update_librarian')}}" method="POST" id="form">
+            <form action="{{url_for('update_librarian')}}" method="POST" id="form" onsubmit="return validateButton()">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <section class="form_grid">
                     <section class="form_section1">
@@ -98,7 +98,7 @@
                         </div>
                         <div class="form_section">
                             <label for="confirm_email" class="form-label">Confirme su correo</label>
-                            <input type="email" id="emailconfirm" name="confirm_email" class="form-input" placeholder="Confirme su correo electrónico...">
+                            <input type="email" id="confirm_email" name="confirm_email" class="form-input" placeholder="Confirme su correo electrónico...">
                         </div>
                         <div class="form_section">
                             <label for="creator_id" class="form-label">Ingrese RUT del Administrador</label>
@@ -107,7 +107,7 @@
                     </section>
                 </section>
                 <div class="form-section">
-                    <input type="submit" class="btn sign_in_button" value="Ingresar Administrador">
+                    <input type="submit" id="submit" class="btn sign_in_button" value="Ingresar Administrador">
                 </div>
             </form>
         </section>
@@ -119,4 +119,5 @@
 
 {% block customJS %}
 <script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+<script src="{{url_for('static', filename='js/validate_librarian.js')}}"></script>
 {% endblock %}

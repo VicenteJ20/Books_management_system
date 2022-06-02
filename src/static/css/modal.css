@@ -1,0 +1,21 @@
+#confirmation_alert{
+    width: 100%;
+    height: 100vh;
+    display: none;
+    background-color: rgba(15, 15, 15, 0.397);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999999999999;
+}
+
+.content_confirmation{
+    background-color: #fafafa;
+    padding: 1rem 2rem;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.close_button{
+    cursor: pointer;
+}

@@ -5,6 +5,7 @@
 {% block customCSS %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/view_librarian.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/modal.css')}}">
 {% endblock %}
 
 {% block body %}
@@ -86,10 +87,10 @@
                         <td>{{librarian[4]}}</td>
                         <td>{{librarian[5]}}</td>
                         <td>
-                            <form action="{{url_for('delete_librarian', id = librarian[0])}}" method="POST">
+                            <form action="{{url_for('delete_librarian', id = librarian[0])}}" method="POST" onsubmit="return validateSend()">
                                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="id" value="{{librarian[0]}}">
-                                <button class="btn btn-outline-danger">Eliminar</button>
+                                <button class="btn btn-outline-danger" id="del_button">Eliminar</button>
                             </form>
                         </td>
                     </tr>
@@ -97,6 +98,20 @@
                     {% endfor %}
                 </tbody>
             </table>
+
+            <div id="confirmation_alert">
+                <div class="content_confirmation">
+                    <div class="close_modal">
+                        <button class="button_modal">X</button>
+                    </div>
+                    <h2 class="title">¿Está seguro que desea eliminar este usuario?</h2>
+                    <p class="subtitle">Si eliminar a este bibliotecario, dejará de existir en la base de datos y no podrá iniciar sesión ni trabajar con nuevas peticiones por parte de los clientes.</p>
+                    <div class="grid_confirmation">
+                        <a href="" class="btn btn-primary d-block" id="cancel_button">Cancelar la operación</a>
+                        <a href="" class="btn btn-danger d-block" id="delete_button">Eliminar bibliotecario</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </section>
 </main>
@@ -105,4 +120,5 @@
 
 {% block customJS %}
 <script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+<script src="{{url_for('static', filename='js/modal_confirmation.js')}}"></script>
 {% endblock %}
